@@ -1,3 +1,5 @@
+console.log('JS OK');
+
 const slides = [
     {
         image: 'img/01.jpg',
