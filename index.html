@@ -43,7 +43,8 @@
 
                     <div class="next" @click='scrollDown'></div>
 
-                    <div v-for="(element, index) in slides" class="thumb" :class="{ active: index === selection }">
+                    <div v-for="(element, index) in slides" class="thumb" :class="{ active: index === selection }"
+                        @click="imagePointer(index)">
                         <img :src="element.image" :alt="element.title" />
                     </div>
 

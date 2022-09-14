@@ -62,6 +62,12 @@ const app = new Vue(
                 } else {
                     this.selection = 0;
                 }
+            },
+
+            imagePointer(pointSelection) {
+
+                this.selection = pointSelection;
+
             }
 
         }
