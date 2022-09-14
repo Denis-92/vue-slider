@@ -27,5 +27,53 @@ const slides = [
         text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
     }
 ];
+//console.log(slides.length);
 
-console.log(slides);
+
+const vueRoot = new Vue({
+
+    el: '#app',
+
+    data: {
+
+        selection: 0,
+
+        thumb: 'thumb',
+
+        get activeDisplay() {
+            return slides[this.selection].image
+        },
+
+        get titleDisplay() {
+            return slides[this.selection].title
+        },
+
+        get description() {
+            return slides[this.selection].text
+        }
+
+    },
+
+    methods: {
+
+        scrollUp: function () {
+
+            if (this.selection < 1) {
+                this.selection = 4;
+            } else {
+                this.selection--;
+            }
+        },
+
+        scrollDown: function () {
+
+            if (this.selection === 4) {
+                this.selection = 0;
+            } else {
+                this.selection++;
+            }
+        }
+
+    }
+
+})
