@@ -30,50 +30,42 @@ const slides = [
 //console.log(slides.length);
 
 
-const vueRoot = new Vue({
+const app = new Vue(
 
-    el: '#app',
+    {
 
-    data: {
+        el: '#app',
 
-        selection: 0,
+        data: {
 
-        thumb: 'thumb',
+            slides,
 
-        get activeDisplay() {
-            return slides[this.selection].image
+            selection: 0,
+
         },
 
-        get titleDisplay() {
-            return slides[this.selection].title
-        },
+        methods: {
 
-        get description() {
-            return slides[this.selection].text
-        }
+            scrollUp() {
 
-    },
+                if (this.selection === 0) {
+                    this.selection = this.slides.length - 1;
+                } else {
+                    this.selection--;
+                }
+            },
 
-    methods: {
+            scrollDown() { // ': function' NON NECESSARIO
 
-        scrollUp: function () {
-
-            if (this.selection < 1) {
-                this.selection = 4;
-            } else {
-                this.selection--;
+                if (this.selection < (this.slides.length - 1)) {
+                    this.selection++;
+                } else {
+                    this.selection = 0;
+                }
             }
-        },
 
-        scrollDown: function () {
-
-            if (this.selection === 4) {
-                this.selection = 0;
-            } else {
-                this.selection++;
-            }
         }
 
     }
 
-})
+);
